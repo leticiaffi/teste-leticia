@@ -1,5 +1,7 @@
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class Funcionario extends Pessoa {
     BigDecimal salario;
@@ -21,6 +23,7 @@ public class Funcionario extends Pessoa {
 
     @Override
     public String toString() {
-        return super.toString() + ", Salário: " + salario + ", Função: " + funcao;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return super.toString() + ", Salário: " + String.format(Locale.GERMANY, "%,.2f", salario) + ", Função: " + funcao;
     }
 }
